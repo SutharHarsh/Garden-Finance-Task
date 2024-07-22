@@ -23,89 +23,116 @@
 
 # 🌿 Garden-SDK Project 🌿
 
-Welcome to the Garden-SDK project! This repository is your one-stop solution for managing cryptocurrency wallets and performing seamless token swaps. Dive in to explore and unleash the full potential of decentralized finance.
-
-![Garden-SDK Banner](https://your-image-url.com/banner.png)
+<br>
 
 ## 📚 Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Components](#components)
-- [Wallets](#wallets)
-- [Swapping Tokens](#swapping-tokens)
-- [Contributing](#contributing)
-- [License](#license)
+- Installation
+- Usage
+- Components
+- Wallets
+- Swapping Tokens
+- Contributing
+- License
 
-## 🚀 Installation
+  <br>
 
-Follow these steps to get your Garden-SDK up and running:
+## Installation
 
-1. **Update your package lists and install Node.js and npm:**
+We followed the below steps to perform the Garden-SDK task: 
+<br>
+<br>
+
+1. **Update package lists and install Node.js and npm:**
+   - First, we updated the package lists and then installed Node.js and npm
+     <br>
+     <br>
 
     ```sh
     sudo apt-get update && sudo apt-get install nodejs npm
     ```
 
-2. **Install Docker:**
+3. **Install Docker:**
+   - After instaling Node.js and npm. We install Docker using the mentioned command.
+     <br>
+     <br>
+
+     ![docker version](https://github.com/user-attachments/assets/2088c1a0-bd34-419f-b90a-92b2aa38fba1)
+
 
     ```sh
     sudo apt-get update && sudo apt-get install docker.io
     ```
 
-3. **Install Merry CLI:**
+5. **Install Merry CLI:**
+   - Then we installed Merry CLI using the mentioned command.
+     <br>
+     <br>
 
     ```sh
     sudo apt install curl && curl https://get.merry.dev | bash
     ```
 
-4. **Install necessary npm packages:**
+7. **Install necessary npm packages:**
+   - Then we installed 3 necessary packages:
+   - @catalogfi/wallets
+   - @gardenfi/orderbook
+   - @gardenfi/core
+   <br>
 
     ```sh
     npm install @catalogfi/wallets @gardenfi/orderbook @gardenfi/core
     ```
 
-5. **Run Merry:**
+9. **Run Merry:**
+    - We successfully run the Merry CLI
+      <br>
+      <br>
 
     ```sh
     merry go
     ```
+<br>
 
-6. **Update package lists:**
+   ![merry go running](https://github.com/user-attachments/assets/32e0b47b-1726-4be5-ba9c-6106b9db02fb)
+
+
+
+10. **Update package lists:**
+    - After Successfully running the Merry CLI. We updated the package lists using the mentioned command
+      <br>
+      <br>
 
     ```sh
     sudo apt update
     ```
 
-7. **Install Docker Compose:**
+12. **Installing Docker Compose:**
+    <br>
+
+    ![docker-compose version](https://github.com/user-attachments/assets/a96a9a0e-200d-4686-805c-a117b3c4c4f6)
+
 
     ```sh
     sudo apt install docker-compose
     ```
-
-8. **Replace Docker Compose with the latest version:**
-
-    ```sh
-    sudo rm /usr/local/bin/docker-compose
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
-    sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-    ```
-
-9. **Download Docker images:**
+    
+15. **Downloading and Pulling the Docker images:**
 
     ```sh
     docker pull [image-name]
     ```
+    <br>
+    <br>
 
 ## 🛠️ Usage
 
-1. **Create a React application with the following components:**
+1. **From the following components we created a React application:**
 
     - **SwapForm.tsx**
     - **Orders.tsx**
 
-2. **Combine these components into `App.js`:**
+2. **Combining these components into `App.js`:**
 
     ```jsx
     import React from 'react';
@@ -124,18 +151,18 @@ Follow these steps to get your Garden-SDK up and running:
     export default App;
     ```
 
-3. **Create wallet files:**
+3. **Creating wallet files:**
 
     - **bitcoin-wallet.ts**
     - **evm-wallet.ts**
 
-4. **Write the swapping code for BTC to WBTC and vice versa:**
+4. **Writing the swapping code for BTC to WBTC and vice versa:**
 
     ```ts
     // Example code for swapping BTC to WBTC
     ```
 
-5. **Run the program:**
+5. **Runing the program:**
 
     ```sh
     npm start
@@ -173,12 +200,8 @@ We welcome contributions! Feel free to fork the repository, create a branch, and
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
----
 
-Feel free to reach out if you have any questions or need further assistance. Happy coding!
 
-![Footer Image](https://your-image-url.com/footer.png)
 
----
 
-This version adds some flair and visual elements to make the README more engaging. You can further customize it with images, icons, and more detailed descriptions as needed.
+
