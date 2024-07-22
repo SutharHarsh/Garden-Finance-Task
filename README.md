@@ -1,4 +1,6 @@
-#Solution of Garden SDK Task#
+#Solution of Garden SDK Task
+
+
 1. sudo apt-get update && sudo apt-get install nodejs npm
 2. sudo apt-get update && sudo apt-get install docker.io
 3. sudo apt install curl && curl https://get.merry.dev | bash
@@ -11,3 +13,4 @@ sudo apt install docker-compose{ModuleNotFoundError: No module named 'distutils'
 9. sudo chmod +x /usr/local/bin/docker-compose
 10 . sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 11. image download for docker
+12. We create a react app with components SwapForm.tsx, Orders.tsx then we combine these components into App.js
