@@ -1,0 +1,85 @@
+import {
+    BitcoinNetwork,
+    BitcoinProvider,
+    BitcoinWallet,
+    EVMWallet,
+  } from '@catalogfi/wallets';
+  import { JsonRpcProvider, Wallet, BrowserProvider } from 'ethers';
+  import { Orderbook, Chains, Assets, Actions, parseStatus } from '@gardenfi/orderbook';
+  import { GardenJS } from '@gardenfi/core';
+  
+  // Extend the Window interface to include ethereum
+  declare global {
+    interface Window {
+      ethereum: any;
+    }
+  }
+  
+  // Function to create Bitcoin wallet using OTA
+  const createBitcoinWallet = async () => {
+    const bitcoinProvider = new BitcoinProvider(BitcoinNetwork.Mainnet);
+    const signer = await new BrowserProvider(window.ethereum).getSigner();
+    const bitcoinWalletOpts = {
+      provider: bitcoinProvider,
+      privateKey: 'your-bitcoin-private-key', // Replace with your Bitcoin private key
+    };
+    const bitcoinOTA = new BitcoinWallet(bitcoinWalletOpts);
+    return bitcoinOTA;
+  };
+  
+  
+  const createEVMWallet = () => {
+    const ethereumPk = '0x7A50f31e0613538Ea9Fd036D1cFfe4D2188D266c';
+    const ethereumProvider = new JsonRpcProvider('https://rpc.ankr.com/eth');
+    const signer = new Wallet(ethereumPk, ethereumProvider);
+    return new EVMWallet(signer);
+  };
+  
+  // Main function to setup wallets and perform swap
+  (async () => {
+    try {
+      const bitcoinWallet = await createBitcoinWallet();
+      const evmWallet = createEVMWallet();
+  
+      const orderbook = await Orderbook.init({
+        signer: evmWallet.getSigner(), // Use the getSigner method if available
+      });
+  
+      const wallets = {
+        [Chains.bitcoin]: bitcoinWallet,
+        [Chains.ethereum]: evmWallet,
+      };
+  
+      const garden = new GardenJS(orderbook, wallets);
+  
+      const sendAmount = 0.0001 * 1e8;
+      const receiveAmount = (1 - 0.3 / 100) * sendAmount;
+  
+      const orderId = await garden.swap(
+        Assets.bitcoin.BTC,
+        Assets.ethereum.WBTC,
+        sendAmount,
+        receiveAmount
+      );
+  
+      console.log('Swap request created with order ID:', orderId);
+  
+      // Subscribe to orders and handle actions
+      garden.subscribeOrders(await evmWallet.getAddress(), async (orders) => {
+        const order = orders.filter((order) => order.ID === orderId)[0];
+        if (!order) return;
+  
+        const action = parseStatus(order);
+  
+        if (action === Actions.UserCanInitiate || action === Actions.UserCanRedeem) {
+          const swapper = garden.getSwap(order);
+          const performedAction = await swapper.next();
+          console.log(
+            Completed Action ${performedAction.action} with transaction hash: ${performedAction.output}
+          );
+        }
+      });
+    } catch (error) {
+      console.error('Error in Garden SDK integration:', error);
+    }
+  })();
