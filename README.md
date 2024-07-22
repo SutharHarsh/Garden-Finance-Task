@@ -1,26 +1,3 @@
-#Solution of Garden SDK Task
-
-
-1. sudo apt-get update && sudo apt-get install nodejs npm
-2. sudo apt-get update && sudo apt-get install docker.io
-3. sudo apt install curl && curl https://get.merry.dev | bash
-4. npm install @catalogfi/wallets @gardenfi/orderbook @gardenfi/core
-5. we run merry go suucessfully 
-6. sudo apt update
-7. sudo apt install docker-compose
-8. delete that docker compose
-9. using alternative : sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-10. sudo chmod +x /usr/local/bin/docker-compose
-10 . sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-11. image download for docker
-12. We create a react app with components SwapForm.tsx, Orders.tsx
-13. then we combine these components into App.js
-14. We created 2 wallets file bitcoin-wallet.ts and evm-wallet.ts
-15. Then we write the code of swapping BTC to WBTC and WBTC to BTC
-16. Then We Run the Program
-
-
-
 # 🌿 Garden-SDK Project 🌿
 
 <br>
@@ -158,15 +135,7 @@ We followed the below steps to perform the Garden-SDK task:
 
 4. **Writing the swapping code for BTC to WBTC and vice versa:**
 
-    ```ts
-    // Example code for swapping BTC to WBTC
-    ```
 
-5. **Runing the program:**
-
-    ```sh
-    npm start
-    ```
 
 ## 📦 Components
 
