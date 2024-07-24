@@ -29,7 +29,7 @@ import {
   
   
   const createEVMWallet = () => {
-    const ethereumPk = '0x7A50f31e0613538Ea9Fd036D1cFfe4D2188D266c';
+    const ethereumPk = '';
     const ethereumProvider = new JsonRpcProvider('https://rpc.ankr.com/eth');
     const signer = new Wallet(ethereumPk, ethereumProvider);
     return new EVMWallet(signer);
