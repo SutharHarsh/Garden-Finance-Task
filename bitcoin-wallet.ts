@@ -1,22 +1,13 @@
 import {
-    BitcoinOTA,
+    BitcoinWallet,
     BitcoinProvider,
     BitcoinNetwork,
 } from "@catalogfi/wallets";
-import { JsonRpcSigner, BrowserProvider } from "ethers";
-declare global{
-    interface Window{
-        ethereum: any;
-    }
-}
 
-(async () => {
-    try {
-        const provider = new BitcoinProvider(BitcoinNetwork.Mainnet);
-        const signer = await new BrowserProvider(window.ethereum).getSigner();
-        const ota = new BitcoinOTA(provider, signer);
-        console.log('Bitcoin OTA created successfully:', ota);
-    } catch (error) {
-        console.error('Error creating Bitcoin OTA:', error);
-    }
-})();
+const provider = new BitcoinProvider(BitcoinNetwork.Mainnet);
+
+const bitcoinPk = 'YOUR BITCOIN PRIVATE KEY';
+const bitcoinWallet = BitcoinWallet.fromPrivateKey(bitcoinPk, bitcoinProvider);
+
+const wif = 'YOUR WIF KEY'
+const bitcoinWallet = BitcoinWallet.fromWIF(wif, bitcoinProvider);
