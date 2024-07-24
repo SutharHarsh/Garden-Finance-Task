@@ -1,5 +1,5 @@
 #  Garden-SDK Project 
-
+## We used Ubuntu to complete the task
 <br>
 
 ## 📚 Table of Contents
@@ -102,50 +102,14 @@ We followed the below steps to perform the Garden-SDK task:
     <br>
     <br>
 
-## 🛠️ Usage
-
-1. **From the following components we created a React application:**
-
-    - **SwapForm.tsx**
-    - **Orders.tsx**
-
-2. **Combining these components into `App.js`:**
-
-    ```jsx
-    import React from 'react';
-    import SwapForm from './components/SwapForm';
-    import Orders from './components/Orders';
-
-    function App() {
-      return (
-        <div>
-          <SwapForm />
-          <Orders />
-        </div>
-      );
-    }
-
-    export default App;
-    ```
-
-3. **Creating wallet files:**
-
-    - **bitcoin-wallet.ts**
-    - **evm-wallet.ts**
-
-4. **Writing the swapping code for BTC to WBTC and vice versa:**
-
-
 
 ## 📦 Components
-
-### SwapForm.tsx
-
-A sleek and user-friendly form for initiating token swaps.
 
 ### Orders.tsx
 
 A dynamic component displaying current swap orders.
+<br>
+<br>
 
 ## 💼 Wallets
 
@@ -156,6 +120,8 @@ Handles Bitcoin wallet functionalities with ease.
 ### evm-wallet.ts
 
 Manages Ethereum Virtual Machine (EVM) wallets seamlessly.
+<br>
+<br>
 
 ## 🔄 Swapping 
 
