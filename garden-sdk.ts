@@ -8,20 +8,20 @@ import {
   import { Orderbook, Chains, Assets, Actions, parseStatus } from '@gardenfi/orderbook';
   import { GardenJS } from '@gardenfi/core';
   
-  // Extend the Window interface to include ethereum
+
   declare global {
     interface Window {
       ethereum: any;
     }
   }
   
-  // Function to create Bitcoin wallet using OTA
+  
   const createBitcoinWallet = async () => {
     const bitcoinProvider = new BitcoinProvider(BitcoinNetwork.Mainnet);
     const signer = await new BrowserProvider(window.ethereum).getSigner();
     const bitcoinWalletOpts = {
       provider: bitcoinProvider,
-      privateKey: 'your-bitcoin-private-key', // Replace with your Bitcoin private key
+      privateKey: 'your-bitcoin-private-key', 
     };
     const bitcoinOTA = new BitcoinWallet(bitcoinWalletOpts);
     return bitcoinOTA;
@@ -35,14 +35,14 @@ import {
     return new EVMWallet(signer);
   };
   
-  // Main function to setup wallets and perform swap
+ 
   (async () => {
     try {
       const bitcoinWallet = await createBitcoinWallet();
       const evmWallet = createEVMWallet();
   
       const orderbook = await Orderbook.init({
-        signer: evmWallet.getSigner(), // Use the getSigner method if available
+        signer: evmWallet.getSigner(), 
       });
   
       const wallets = {
@@ -63,8 +63,8 @@ import {
       );
   
       console.log('Swap request created with order ID:', orderId);
-  
-      // Subscribe to orders and handle actions
+
+        
       garden.subscribeOrders(await evmWallet.getAddress(), async (orders) => {
         const order = orders.filter((order) => order.ID === orderId)[0];
         if (!order) return;
