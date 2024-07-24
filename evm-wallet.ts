@@ -1,22 +1,8 @@
-import {
-    BitcoinOTA,
-    BitcoinProvider,
-    BitcoinNetwork,
-} from "@catalogfi/wallets";
-import { JsonRpcSigner, BrowserProvider } from "ethers";
-declare global{
-    interface Window{
-        ethereum: any;
-    }
-}
+import { EVMWallet } from "@catalogfi/wallets";
+import { JsonRpcProvider, Wallet } from "ethers";
 
-(async () => {
-    try {
-        const provider = new BitcoinProvider(BitcoinNetwork.Mainnet);
-        const signer = await new BrowserProvider(window.ethereum).getSigner();
-        const ota = new BitcoinOTA(provider, signer);
-        console.log('Bitcoin OTA created successfully:', ota);
-    } catch (error) {
-        console.error('Error creating Bitcoin OTA:', error);
-    }
-})();
+const provider = new JsonRpcProvider("https://rpc.ankr.com/eth");
+const privateKey = "YOUR PRIVATE KEY";
+const wallet = new Wallet(privateKey, provider);
+
+const evmWallet = new EVMWallet(wallet);
