@@ -1,4 +1,4 @@
-# 🌿 Garden-SDK Project 🌿
+#  Garden-SDK Project 
 
 <br>
 
@@ -157,20 +157,6 @@ Handles Bitcoin wallet functionalities with ease.
 
 Manages Ethereum Virtual Machine (EVM) wallets seamlessly.
 
-## 🔄 Swapping Tokens
+## 🔄 Swapping 
 
-Easily swap BTC to WBTC and vice versa. The logic is meticulously implemented in the wallet files and integrated into the React application through the SwapForm and Orders components.
-
-## 🤝 Contributing
-
-We welcome contributions! Feel free to fork the repository, create a branch, and submit a pull request. Please create an issue to discuss the changes you wish to make before opening a pull request.
-
-## 📜 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-
-
-
-
-
+### garden-sdk.ts
